@@ -30,13 +30,12 @@ jobs:
     # A file, directory or wildcard pattern that describes what to upload
         path: target/bukkitcord-*.jar
     - name: Upload to repo
-      run:
-        - echo "Deploying to the Github..."
-        - git clone --depth=1 https://${{ secrets.REPO_KEY }}@github.com/DreamlessRealm/maven-repo.git /home/runner/maven-repo
-        - mvn deploy -DaltDeploymentRepository=maven-repo::default::file:/home/runner/maven-repo
-        - git config --global user.email "kinomc@qq.com"
-        - git config --global user.name "Github Actions Bot"
-        - cd /home/runner/maven-repo
-        - git add .
-        - git commit -m "Auto update by Github Actions"
-        - git push --force
+      run: echo "Deploying to the Github..."
+    - run: git clone --depth=1 https://${{ secrets.REPO_KEY }}@github.com/DreamlessRealm/maven-repo.git /home/runner/maven-repo
+    - run: mvn deploy -DaltDeploymentRepository=maven-repo::default::file:/home/runner/maven-repo
+    - run: git config --global user.email "kinomc@qq.com"
+    - run: git config --global user.name "Github Actions Bot"
+    - run: cd /home/runner/maven-repo
+    - run: git add .
+    - run: git commit -m "Auto update by Github Actions"
+    - run: git push --force
