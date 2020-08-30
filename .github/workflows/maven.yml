@@ -31,9 +31,9 @@ jobs:
         path: target/bukkitcord-*.jar
     - name: Upload to repo
       run: echo "Deploying to the Github..."
-    - run: git clone --depth=1 https://${{ secrets.REPO_KEY }}@github.com/DreamlessRealm/maven-repo.git ~/maven-repo
-    - run: mvn deploy -DaltDeploymentRepository=maven-repo::default::file:~/maven-repo
-    - run: cd ~/maven-repo
+    - run: git clone --depth=1 https://${{ secrets.REPO_KEY }}@github.com/DreamlessRealm/maven-repo.git /home/runner/maven-repo
+    - run: mvn deploy -DaltDeploymentRepository=maven-repo::default::file:/home/runner/maven-repo
+    - run: cd /home/runner/maven-repo
     - run: git add .
     - run: git config --global user.email "kinomc@qq.com"
     - run: git config --global user.name "Github Actions Bot"
