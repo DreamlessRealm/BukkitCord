@@ -126,14 +126,6 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public</url>
         </repository>
-        <repository>
-            <id>spigotmc-central</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/central</url>
-        </repository>
-        <repository>
-            <id>aliyun-maven</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
     </repositories>
 
     <dependencies>
