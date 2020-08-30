@@ -160,7 +160,7 @@
             <artifactId>bungeecord</artifactId>
             <version>1.16-R0.3</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/jar-libs/BungeeCord-MC116.jar</systemPath>
+            <systemPath>${pom.basedir}/jar-libs/BungeeCord.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
