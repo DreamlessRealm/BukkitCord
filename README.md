@@ -15,6 +15,7 @@
 		<id>DreamlessRealm-Repo-FastGit</id>
 		<url>https://raw.fastgit.org/DreamlessRealm/maven-repo/master</url>
 	</repository>
+	<!--两条线路二选一，按照自己的情况而定-->
 </repositories>
 ```
 ```xml
@@ -33,6 +34,7 @@ repositories {
 	maven { url 'https://raw.githubusercontent.com/DreamlessRealm/maven-repo/master' }
 	//FastGit 镜像线路
 	maven { url 'https://raw.fastgit.org/DreamlessRealm/maven-repo/master' }
+	//两条线路二选一，按照自己的情况而定
 }
 ```
 ```text
