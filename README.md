@@ -39,6 +39,6 @@ repositories {
 ```
 ```text
 dependencies {
-        provided 'top.dsbbs2:bukkitcord:1.0-SNAPSHOT'
+        compileOnly 'top.dsbbs2:bukkitcord:1.0-SNAPSHOT'
 }
 ```
