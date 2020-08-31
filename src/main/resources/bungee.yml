@@ -1,5 +1,5 @@
 name: BukkitCord
-version: 0.1
+version: ${project.version}
 main: top.dsbbs2.bukkitcord.bungee.BungeeBootstrap
 depends:
   - LuckPerms
