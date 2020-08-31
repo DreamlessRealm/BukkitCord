@@ -59,12 +59,10 @@
                     <target>${java.version}</target>
                 </configuration>
                 <executions>
-                    <!-- 替换 default-compile, 因为它会被 maven 特别处理 -->
                     <execution>
                         <id>default-compile</id>
                         <phase>none</phase>
                     </execution>
-                    <!-- 替换 default-testCompile, 因为它会被 maven 特别处理 -->
                     <execution>
                         <id>default-testCompile</id>
                         <phase>none</phase>
@@ -112,16 +110,8 @@
 
     <repositories>
         <repository>
-            <id>nms-repo</id>
-            <url>https://repo.codemc.io/repository/nms/</url>
-        </repository>
-        <repository>
-            <id>spigotmc-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots</url>
-        </repository>
-        <repository>
-            <id>CodeMC</id>
-            <url>https://repo.codemc.org/repository/maven-public</url>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
         <repository>
             <id>sonatype</id>
