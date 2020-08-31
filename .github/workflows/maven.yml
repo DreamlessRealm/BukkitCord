@@ -59,3 +59,4 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./target/*.jar
         asset_name: BukkitCord.jar
+        asset_content_type: application/zip
