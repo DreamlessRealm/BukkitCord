@@ -35,7 +35,7 @@ jobs:
         git clone --depth=1 https://${{ secrets.REPO_KEY }}@github.com/DreamlessRealm/maven-repo.git /home/runner/maven-repo
         mvn deploy -DaltDeploymentRepository=maven-repo::default::file:/home/runner/maven-repo
         git config --global user.email "kinomc@qq.com"
-        git config --global user.name "Github Actions Bot"
+        git config --global user.name "Github Actions User"
         cd /home/runner/maven-repo
         git add .
         git commit -m "Auto update by Github Actions"
