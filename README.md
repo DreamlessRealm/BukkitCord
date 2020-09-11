@@ -22,7 +22,7 @@
 <dependency>
 	<groupId>top.dsbbs2</groupId>
 	<artifactId>bukkitcord</artifactId>
-	<version>1.01-SNAPSHOT</version>
+	<version>1.02</version>
 	<scope>provided</scope>
 </dependency>
 ```
@@ -39,6 +39,6 @@ repositories {
 ```
 ```text
 dependencies {
-        compileOnly 'top.dsbbs2:bukkitcord:1.01-SNAPSHOT'
+        compileOnly 'top.dsbbs2:bukkitcord:1.02'
 }
 ```

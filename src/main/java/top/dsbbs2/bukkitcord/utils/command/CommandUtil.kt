@@ -1,6 +1,5 @@
 package top.dsbbs2.bukkitcord.utils.command
 
-import top.dsbbs2.bukkitcord.utils.command.IChildCommand
 import java.util.*
 
 object CommandUtil {

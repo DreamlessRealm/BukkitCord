@@ -6,7 +6,7 @@
 
     <groupId>top.dsbbs2</groupId>
     <artifactId>bukkitcord</artifactId>
-    <version>1.01-SNAPSHOT</version>
+    <version>1.02</version>
     <packaging>jar</packaging>
 
     <name>BukkitCord</name>

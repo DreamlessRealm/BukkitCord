@@ -32,12 +32,20 @@ class Text : Comparable<Any?> {
     }
 
     override fun equals(o: Any?): Boolean {
-        return if (o is Text) o.getText().equals(getText(), ignoreCase = true) else if (o is String) o.equals(getText(), ignoreCase = true) else (o as? StringBuilder)?.toString()?.equals(getText(), ignoreCase = true)
-                ?: (o?.toString()?.equals(getText(), ignoreCase = true) ?: false)
+        return when (o) {
+            is Text -> o.getText().equals(getText(), ignoreCase = true)
+            is String -> o.equals(getText(), ignoreCase = true)
+            else -> (o as? StringBuilder)?.toString()?.equals(getText(), ignoreCase = true)
+                    ?: (o?.toString()?.equals(getText(), ignoreCase = true) ?: false)
+        }
     }
 
     override fun compareTo(o: Any?): Int {
-        return if (o is Text) o.getText().compareTo(getText(), ignoreCase = true) else if (o is String) o.compareTo(getText(), ignoreCase = true) else (o as? StringBuilder)?.toString()?.compareTo(getText(), ignoreCase = true)
-                ?: (o?.toString()?.compareTo(getText(), ignoreCase = true) ?: 0)
+        return when (o) {
+            is Text -> o.getText().compareTo(getText(), ignoreCase = true)
+            is String -> o.compareTo(getText(), ignoreCase = true)
+            else -> (o as? StringBuilder)?.toString()?.compareTo(getText(), ignoreCase = true)
+                    ?: (o?.toString()?.compareTo(getText(), ignoreCase = true) ?: 0)
+        }
     }
 }

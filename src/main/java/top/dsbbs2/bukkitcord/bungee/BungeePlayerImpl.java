@@ -5,81 +5,109 @@ import net.luckperms.api.query.*;
 import net.md_5.bungee.api.*;
 import net.md_5.bungee.api.config.*;
 import net.md_5.bungee.api.connection.*;
+import org.jetbrains.annotations.*;
 import top.dsbbs2.bukkitcord.api.*;
+import top.dsbbs2.bukkitcord.utils.*;
 
+import java.net.*;
 import java.util.*;
 
 public class BungeePlayerImpl extends BungeeCommandSenderImpl implements IPlayer {
-    protected static LuckPerms api = LuckPermsProvider.get();
+    protected static final LuckPerms api = LuckPermsProvider.get();
     @Override
     public ProxiedPlayer getDelegate() {
-        return player;
+        return i;
     }
 
-    private final ProxiedPlayer player;
+    private final ProxiedPlayer i;
+    private final UUID u;
     public BungeePlayerImpl(ProxiedPlayer player)
     {
         super(player);
-        this.player=player;
+        this.i =player;
+        this.u=player.getUniqueId();
     }
 
     @Override
     public UUID getUniqueId() {
-        return player.getUniqueId();
+        return u;
     }
     @Override
     public String getServerName() {
-        return player.getServer().getInfo().getName();
+        return i.getServer().getInfo().getName();
     }
 
     @Override
     public ArrayList<IPlayer> getServerOnlinePlayers() {
         ArrayList<IPlayer> ret=new ArrayList<>();
-        player.getServer().getInfo().getPlayers().forEach(i->ret.add(new BungeePlayerImpl(i)));
+        i.getServer().getInfo().getPlayers().forEach(i->ret.add(new BungeePlayerImpl(i)));
         return ret;
     }
 
     @Override
     public ArrayList<String> getServerOnlinePlayerNames() {
         ArrayList<String> ret=new ArrayList<>();
-        player.getServer().getInfo().getPlayers().forEach(i->ret.add(i.getName()));
+        i.getServer().getInfo().getPlayers().forEach(i->ret.add(i.getName()));
         return ret;
     }
 
     @Override
     public void connect(String serverName) {
         ServerInfo target = ProxyServer.getInstance().getServerInfo(serverName);
-        player.connect(target);
+        i.connect(target);
     }
+
     @Override
     public String getPlayerPrefix() {
-        UUID u = player.getUniqueId();
-        QueryOptions queryOptions = Objects.requireNonNull(api).getContextManager().getQueryOptions(player);
-        String prefix = Objects.requireNonNull(LuckPermsProvider.get().getUserManager().getUser(u)).getCachedData().getMetaData(queryOptions).getPrefix();
-        if(prefix == null)
+        try{
+            QueryOptions queryOptions = Objects.requireNonNull(api).getContextManager().getQueryOptions(i);
+            String prefix = Objects.requireNonNull(LuckPermsProvider.get().getUserManager().getUser(u)).getCachedData().getMetaData(queryOptions).getPrefix();
+            if(prefix == null)
+                return "";
+            else
+                return prefix;
+        }catch (Throwable e){
             return "";
-        else
-            return prefix;
+        }
     }
 
     @Override
     public String getPlayerSuffix() {
-        UUID u = player.getUniqueId();
-        QueryOptions queryOptions = Objects.requireNonNull(api).getContextManager().getQueryOptions(player);
-        String suffix = Objects.requireNonNull(LuckPermsProvider.get().getUserManager().getUser(u)).getCachedData().getMetaData(queryOptions).getSuffix();
-        if(suffix == null)
+        try{
+            QueryOptions queryOptions = Objects.requireNonNull(api).getContextManager().getQueryOptions(i);
+            String suffix = Objects.requireNonNull(LuckPermsProvider.get().getUserManager().getUser(u)).getCachedData().getMetaData(queryOptions).getSuffix();
+            if(suffix == null)
+                return "";
+            else
+                return suffix;
+        }catch (Throwable e){
             return "";
-        else
-            return suffix;
+        }
     }
 
     @Override
     public void chat(String mess) {
-        player.chat(mess);
+        i.chat(mess);
     }
 
     @Override
     public void sendBungeeCordPlayerMessage(IPlayer p, String message) {
         p.sendMessage(message);
+    }
+
+    @Override
+    public int getPing() {
+        return i.getPing();
+    }
+
+    @Override
+    public boolean pingIsInRange(@Nullable Integer var1, @Nullable Integer var2) {
+        return Utils.INSTANCE.isInRange(getPing(),var1,var2);
+    }
+
+    @NotNull
+    @Override
+    public InetSocketAddress getAddress() {
+        return i.getAddress();
     }
 }

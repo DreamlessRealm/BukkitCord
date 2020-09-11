@@ -1,6 +1,6 @@
 package top.dsbbs2.bukkitcord.bukkit;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.java.*;
 
 public final class BukkitBootstrap extends JavaPlugin {
 
