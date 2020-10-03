@@ -1,0 +1,5 @@
+name: BukkitCord
+version: ${project.version}
+main: top.dsbbs2.bukkitcord.nukkit.NukkitBootstrap
+softdepend:
+  - LuckPerms

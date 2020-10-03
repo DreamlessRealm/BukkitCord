@@ -6,7 +6,7 @@
 
     <groupId>top.dsbbs2</groupId>
     <artifactId>bukkitcord</artifactId>
-    <version>1.02</version>
+    <version>1.03</version>
     <packaging>jar</packaging>
 
     <name>BukkitCord</name>
@@ -139,6 +139,13 @@
             <version>1.16-R0.3</version>
             <scope>system</scope>
             <systemPath>${pom.basedir}/jar-libs/BungeeCord.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>cn.nukkit</groupId>
+            <artifactId>nukkit</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/jar-libs/nukkit-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
