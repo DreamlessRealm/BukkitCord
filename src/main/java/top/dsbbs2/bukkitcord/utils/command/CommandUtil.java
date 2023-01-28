@@ -1,6 +1,6 @@
-package top.dsbbs2.bukkitcord.utils.command
+package top.dsbbs2.bukkitcord.utils.command;
 
-import java.util.*
+import java.util.*;
 
 public class CommandUtil {
     public static Vector<String> commandListToCommandNameList(Vector<IChildCommand> v) {
